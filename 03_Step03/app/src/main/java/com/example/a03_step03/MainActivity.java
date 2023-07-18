@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         EditText edtId = findViewById(R.id.edt_id);
         //edt_passwd
         EditText edtPasswd = findViewById(R.id.edt_passwd);
+        //txt_result
+        TextView txtResult = findViewById(R.id.txt_result);
         //btn_login -> 로그인 이벤트까지 작성
         Button btnLogin = findViewById(R.id.btn_login);
         btnLogin.setOnClickListener(new View.OnClickListener() {
@@ -29,10 +31,10 @@ public class MainActivity extends AppCompatActivity {
                 String id = edtId.getText().toString();
                 String passwd = edtPasswd.getText().toString();
                 Log.d("STEP03", id + " / " + passwd);
+                txtResult.setText(id + " / " + passwd);
             }
         });
-        //txt_result
-        TextView txtResult = findViewById(R.id.txt_result);
+
 
 
     }
