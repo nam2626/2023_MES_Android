@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
         Button btnChange = findViewById(R.id.btn_change);
         ImageView imageView1 = findViewById(R.id.imageView);
         ImageView imageView2 = findViewById(R.id.imageView2);
+        //이벤트 처리시 이벤트 객체를 익명 클래스로 생성해서 처리
         btnChange.setOnClickListener(new View.OnClickListener() {
             boolean flag = true;
             @Override
