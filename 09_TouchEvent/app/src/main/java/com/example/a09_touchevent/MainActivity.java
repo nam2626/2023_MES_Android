@@ -44,7 +44,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        GestureDetector detector = new GestureDetector(new GestureDetector.OnGestureListener() {
+        GestureDetector detector = new GestureDetector(this,new GestureDetector.OnGestureListener() {
             @Override
             public boolean onDown(@NonNull MotionEvent motionEvent) {
                 textView.setText(textView.getText() + "\n" + "onDown()");
@@ -53,16 +53,19 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onShowPress(@NonNull MotionEvent motionEvent) {
+                textView.setText(textView.getText() + "\n" + "onShowPress()");
 
             }
 
             @Override
             public boolean onSingleTapUp(@NonNull MotionEvent motionEvent) {
-                return false;
+                textView.setText(textView.getText() + "\n" + "onSingleTapUp()");
+                return true;
             }
 
             @Override
             public boolean onScroll(@NonNull MotionEvent motionEvent, @NonNull MotionEvent motionEvent1, float v, float v1) {
+                textView.setText(textView.getText() + "\n" + "onScroll()");
                 return false;
             }
 
