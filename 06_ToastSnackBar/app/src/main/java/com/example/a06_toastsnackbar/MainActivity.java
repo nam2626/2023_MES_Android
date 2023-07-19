@@ -81,6 +81,13 @@ public class MainActivity extends AppCompatActivity {
                         Toast.makeText(MainActivity.this, "아니오 버튼 클릭", Toast.LENGTH_SHORT).show();
                     }
                 });
+                builder.setNeutralButton("취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity.this, "취소 버튼 클릭", Toast.LENGTH_SHORT).show();                        
+                    }
+                });
+
 
                 AlertDialog dialog = builder.create();
                 dialog.show();
