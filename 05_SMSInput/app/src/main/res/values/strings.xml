@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">05_SMSInput</string>
+    <string name="btn_send">전송</string>
+    <string name="btn_close">닫기</string>
+</resources>
