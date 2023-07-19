@@ -1,9 +1,11 @@
 package com.example.a09_touchevent;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.util.Log;
+import android.view.GestureDetector;
 import android.view.MotionEvent;
 import android.view.View;
 import android.widget.TextView;
@@ -42,7 +44,46 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        
+        GestureDetector detector = new GestureDetector(new GestureDetector.OnGestureListener() {
+            @Override
+            public boolean onDown(@NonNull MotionEvent motionEvent) {
+                textView.setText(textView.getText() + "\n" + "onDown()");
+                return true;
+            }
+
+            @Override
+            public void onShowPress(@NonNull MotionEvent motionEvent) {
+
+            }
+
+            @Override
+            public boolean onSingleTapUp(@NonNull MotionEvent motionEvent) {
+                return false;
+            }
+
+            @Override
+            public boolean onScroll(@NonNull MotionEvent motionEvent, @NonNull MotionEvent motionEvent1, float v, float v1) {
+                return false;
+            }
+
+            @Override
+            public void onLongPress(@NonNull MotionEvent motionEvent) {
+
+            }
+
+            @Override
+            public boolean onFling(@NonNull MotionEvent motionEvent, @NonNull MotionEvent motionEvent1, float v, float v1) {
+                return false;
+            }
+        });
+
+        view2.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View view, MotionEvent motionEvent) {
+                detector.onTouchEvent(motionEvent);
+                return true;
+            }
+        });
     }
 }
 
