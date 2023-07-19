@@ -71,12 +71,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onLongPress(@NonNull MotionEvent motionEvent) {
-
+                textView.setText(textView.getText() + "\n" + "onLongPress()");
             }
 
             @Override
             public boolean onFling(@NonNull MotionEvent motionEvent, @NonNull MotionEvent motionEvent1, float v, float v1) {
-                return false;
+                textView.setText(textView.getText() + "\n" + "onFling()");
+                return true;
             }
         });
 
