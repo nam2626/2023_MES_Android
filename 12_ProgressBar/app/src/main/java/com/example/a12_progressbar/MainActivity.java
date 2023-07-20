@@ -7,6 +7,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -41,6 +42,20 @@ public class MainActivity extends AppCompatActivity {
                         };
                         Thread t = new Thread(r);
                         t.start();
+                    }
+                });
+                dialog.setCanceledOnTouchOutside(false);
+                dialog.setButton(ProgressDialog.BUTTON_POSITIVE, "예", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity.this, "예 버튼 클릭", Toast.LENGTH_SHORT).show();
+                    }
+                });
+
+                dialog.setButton(ProgressDialog.BUTTON_NEUTRAL, "취소", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Toast.makeText(MainActivity.this, "취소 버튼 클릭", Toast.LENGTH_SHORT).show();
                     }
                 });
                 dialog.show();
