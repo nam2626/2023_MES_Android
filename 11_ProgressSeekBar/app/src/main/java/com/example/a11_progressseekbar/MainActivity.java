@@ -51,7 +51,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         //RESET 버튼 클릭시 seekbar의 값을 0으로 초기화
-        
+        btnReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                seekBar.setProgress(0);
+            }
+        });
+
     }
 }
 
