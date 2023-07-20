@@ -3,6 +3,7 @@ package com.example.a11_progressseekbar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.SeekBar;
@@ -42,6 +43,15 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+        //ADD 버튼 클릭시 seekbar의 값을 5씩 증가, 동시에 progressbar 도 같이 증가가 되야함
+        btnAdd.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                seekBar.incrementProgressBy(5);
+            }
+        });
+        //RESET 버튼 클릭시 seekbar의 값을 0으로 초기화
+        
     }
 }
 
