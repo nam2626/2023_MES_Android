@@ -43,6 +43,7 @@ public class MainActivity extends AppCompatActivity {
                         t.start();
                     }
                 });
+                dialog.show();
             }
         });
     }
