@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.res.Resources;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ScrollView;
@@ -33,7 +34,22 @@ public class MainActivity extends AppCompatActivity {
         imageView.setImageDrawable(bitmap);
 
         //버튼 클릭하면 이미지를 변경 pier <-> nature
+        button.setOnClickListener(new View.OnClickListener() {
+            boolean flag = true;
+            @Override
+            public void onClick(View view) {
+                Resources res = getResources();
+                BitmapDrawable bitmap = null;
+                flag = !flag;
+                if(flag)
+                    bitmap = (BitmapDrawable) res.getDrawable(R.drawable.pier);
+                else
+                    bitmap = (BitmapDrawable) res.getDrawable(R.drawable.nature);
 
+                imageView.setImageDrawable(bitmap);
+
+            }
+        });
     }
 }
 
