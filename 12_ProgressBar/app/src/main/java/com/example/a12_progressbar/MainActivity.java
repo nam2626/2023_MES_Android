@@ -28,9 +28,19 @@ public class MainActivity extends AppCompatActivity {
                         Runnable r = new Runnable() {
                             @Override
                             public void run() {
-
+                                while(dialog.getProgress() < 100){
+                                    try {
+                                        Thread.sleep(1000);
+                                        dialog.incrementProgressBy(5);
+                                    } catch (InterruptedException e) {
+                                        throw new RuntimeException(e);
+                                    }
+                                }
+                                dialog.dismiss();
                             }
                         };
+                        Thread t = new Thread(r);
+                        t.start();
                     }
                 });
             }
