@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public boolean onFling(@NonNull MotionEvent motionEvent, @NonNull MotionEvent motionEvent1, float v, float v1) {
-                textView.setText(textView.getText() + "\n" + "onFling()");
+                textView.setText(textView.getText() + "\n" + "onFling() " + v + " , " + v1);
                 return true;
             }
         });
