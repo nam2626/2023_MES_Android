@@ -1,6 +1,7 @@
 package com.example.a15_spinner;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +18,9 @@ public class CustomAdapter extends BaseAdapter {
         list = new ArrayList<SpinnerItem>();
     }
 
+    public void addItem(Drawable img, String text){
+        list.add(new SpinnerItem(img,text));
+    }
     @Override
     public int getCount() {
         return list.size();

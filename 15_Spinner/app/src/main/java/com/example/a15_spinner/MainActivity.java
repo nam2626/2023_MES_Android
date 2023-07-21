@@ -29,5 +29,28 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+
+        CustomAdapter adapter = new CustomAdapter();
+        adapter.addItem(getDrawable(R.drawable.china),"중국");
+        adapter.addItem(getDrawable(R.drawable.fance),"프랑스");
+        adapter.addItem(getDrawable(R.drawable.united),"미국");
+        adapter.addItem(getDrawable(R.drawable.japan),"일본");
+
+        Spinner spn2 = findViewById(R.id.spn_2);
+        spn2.setAdapter(adapter);
+        TextView result2 = findViewById(R.id.txt_result_2);
     }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
