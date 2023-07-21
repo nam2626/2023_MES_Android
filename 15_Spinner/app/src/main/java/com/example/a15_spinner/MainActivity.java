@@ -39,6 +39,20 @@ public class MainActivity extends AppCompatActivity {
         Spinner spn2 = findViewById(R.id.spn_2);
         spn2.setAdapter(adapter);
         TextView result2 = findViewById(R.id.txt_result_2);
+
+        spn2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+                SpinnerItem item = (SpinnerItem) adapter.getItem(i);
+                result2.setText(item.getText());
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> adapterView) {
+
+            }
+        });
+
     }
 }
 
