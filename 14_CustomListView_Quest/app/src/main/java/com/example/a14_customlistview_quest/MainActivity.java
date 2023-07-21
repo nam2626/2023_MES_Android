@@ -26,7 +26,12 @@ public class MainActivity extends AppCompatActivity {
         btnCalc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                adapter.clear();
+                int n = Integer.parseInt(edtNumber.getText().toString());
+                for(int i=1;i<=n;i++){
+                    if(n % i == 0)
+                        adapter.addItem(String.valueOf(i));
+                }
 
                 adapter.notifyDataSetChanged();//리스트 아이템 최신화
             }
