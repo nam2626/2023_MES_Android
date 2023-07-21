@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">15_Spinner</string>
+    <array name="spn_items">
+        <item>항목1</item>
+        <item>항목2</item>
+        <item>항목3</item>
+        <item>항목4</item>
+        <item>항목5</item>
+    </array>
+</resources>
