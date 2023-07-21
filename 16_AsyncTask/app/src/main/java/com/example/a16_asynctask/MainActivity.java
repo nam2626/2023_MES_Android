@@ -33,10 +33,40 @@ public class MainActivity extends AppCompatActivity {
 
     //태스크 실행에 필요한 데이터 타입, 진행 중에 필요한 데이터 타입, 태스크 결과값 데이터 타입
     public class ProgressTask extends AsyncTask<Integer,Integer,Integer>{
+        @Override
+        protected void onPreExecute() {
+            //백그라운드 작업 전에 실행할 영역, 초기화 영역
+            super.onPreExecute();
+            progressBar.setProgress(0);
+        }
+
+        @Override
+        protected void onPostExecute(Integer integer) {
+            super.onPostExecute(integer);
+            //결과값 받아서 UI 처리하는 부분
+            progressBar.setProgress(integer);
+        }
+
+        @Override
+        protected void onCancelled() {
+            super.onCancelled();
+            //태스크 종료 신호를 받았을때
+        }
 
         @Override
         protected Integer doInBackground(Integer... integers) {
-            return null;
+            //작업을 실제 처리하는 부분
+            int value = 0;
+            while(!isCancelled()){
+                value++;
+                if(value == 100) break;
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    throw new RuntimeException(e);
+                }
+            }
+            return value;
         }
     }
 
