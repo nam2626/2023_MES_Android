@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
@@ -31,6 +32,12 @@ public class MainActivity extends AppCompatActivity {
                   task.execute();
             }
         });
+        btnCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                task.cancel(true);
+            }
+        });
     }
 
     //태스크 실행에 필요한 데이터 타입, 진행 중에 필요한 데이터 타입, 태스크 결과값 데이터 타입
@@ -53,6 +60,7 @@ public class MainActivity extends AppCompatActivity {
         protected void onCancelled() {
             super.onCancelled();
             //태스크 종료 신호를 받았을때
+            Log.d("AsyncTask", "onCancelled");
         }
 
         @Override
@@ -62,13 +70,22 @@ public class MainActivity extends AppCompatActivity {
             while(!isCancelled()){
                 value++;
                 if(value == 100) break;
+                else
+                    publishProgress(value);
                 try {
-                    Thread.sleep(1000);
+                    Thread.sleep(100);
                 } catch (InterruptedException e) {
                     throw new RuntimeException(e);
                 }
             }
             return value;
+        }
+
+        @Override
+        protected void onProgressUpdate(Integer... values) {
+            super.onProgressUpdate(values);
+            //현재 작업 진행 상태를 표시 ---> doInBackground에서 publishProgress 호출
+            progressBar.setProgress(values[0]);
         }
     }
 
