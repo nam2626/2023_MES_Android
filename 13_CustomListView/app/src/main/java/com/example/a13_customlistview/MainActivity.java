@@ -30,6 +30,15 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(MainActivity.this, item.getText(), Toast.LENGTH_SHORT).show();
             }
         });
+
+        listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                ListItem item = (ListItem) adapter.getItem(i);
+                Toast.makeText(MainActivity.this, item.getText() + " 아이템 길게 터치", Toast.LENGTH_SHORT).show();
+                return true;
+            }
+        });
     }
 }
 
