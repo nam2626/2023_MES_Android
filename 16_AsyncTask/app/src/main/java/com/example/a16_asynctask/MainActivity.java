@@ -2,6 +2,7 @@ package com.example.a16_asynctask;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -29,6 +30,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+    //태스크 실행에 필요한 데이터 타입, 진행 중에 필요한 데이터 타입, 태스크 결과값 데이터 타입
+    public class ProgressTask extends AsyncTask<Integer,Integer,Integer>{
+
+        @Override
+        protected Integer doInBackground(Integer... integers) {
+            return null;
+        }
+    }
+
 
     public class ProgressThread extends Thread{
         @Override
