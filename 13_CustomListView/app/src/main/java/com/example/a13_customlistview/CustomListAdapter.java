@@ -43,7 +43,7 @@ public class CustomListAdapter extends BaseAdapter {
 
         if(view == null){
             LayoutInflater inflater = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-            inflater.inflate(R.layout.custom_list_item,viewGroup,false);
+            view = inflater.inflate(R.layout.custom_list_item,viewGroup,false);
         }
 
         //화면에 표시될 View로부터 위젯에 대한 참조 획득

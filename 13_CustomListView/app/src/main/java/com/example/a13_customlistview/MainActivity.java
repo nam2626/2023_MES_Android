@@ -3,7 +3,10 @@ package com.example.a13_customlistview;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -18,6 +21,15 @@ public class MainActivity extends AppCompatActivity {
         adapter.addItem(new ListItem(getDrawable(R.drawable.instagram),"인스타그램"));
 
         listView.setAdapter(adapter);
+
+        //아이템 터치 했을때 이벤트
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                ListItem item = (ListItem) adapter.getItem(i);
+                Toast.makeText(MainActivity.this, item.getText(), Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 }
 
