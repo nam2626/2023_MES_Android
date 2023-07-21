@@ -84,7 +84,7 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onProgressUpdate(Integer... values) {
             super.onProgressUpdate(values);
-            //현재 작업 진행 상태를 표시 ---> doInBackground에서 publishProgress 호출
+            //현재 작업 진행 상태를 UI에 표시 ---> doInBackground에서 publishProgress 호출
             progressBar.setProgress(values[0]);
         }
     }
