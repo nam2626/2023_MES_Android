@@ -13,7 +13,7 @@ public class MainActivity extends AppCompatActivity {
     ProgressBar progressBar;
     Button btnStart;
     Button btnCancel;
-
+    ProgressTask task;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,8 +25,10 @@ public class MainActivity extends AppCompatActivity {
         btnStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ProgressThread thread = new ProgressThread();
-                thread.start();
+//                ProgressThread thread = new ProgressThread();
+//                thread.start();
+                  task = new ProgressTask();
+                  task.execute();
             }
         });
     }
