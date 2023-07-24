@@ -4,8 +4,11 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
@@ -46,6 +49,11 @@ public class MainActivity extends AppCompatActivity {
                 connection.setDefaultUseCaches(false);
 
                 //데이터를 받아오는 부분
+                BufferedReader br = new BufferedReader(new InputStreamReader(connection.getInputStream()));
+                String str = "";
+                while((str = br.readLine()) != null) result += str;
+
+                Log.d(TAG, "doInBackground: "+result);
             } catch (UnsupportedEncodingException e) {
                 throw new RuntimeException(e);
             } catch (MalformedURLException e) {
