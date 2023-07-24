@@ -21,11 +21,13 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        KaKaoSearch kaKaoSearch = new KaKaoSearch();
+        kaKaoSearch.execute();
     }
 
     public class KaKaoSearch extends AsyncTask<Void, Void, String>{
         private final String URL = "https://dapi.kakao.com/v2/search/image?query=";
-        private final String USER_INFO = "KakaoAK -";
+        private final String USER_INFO = "KakaoAK 1fd9ab06ba65109ec82e613a3c3752e1";
 
         @Override
         protected void onPostExecute(String s) {
@@ -34,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         protected String doInBackground(Void... voids) {
-            String result = null;
+            String result = "";
 
             try {
                 String search = URLEncoder.encode("갤럭시","UTF-8");
