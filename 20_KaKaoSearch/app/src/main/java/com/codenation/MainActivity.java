@@ -5,6 +5,11 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ListView;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -17,10 +22,15 @@ import java.net.URLEncoder;
 
 public class MainActivity extends AppCompatActivity {
     final String TAG = "KaKaoSearch";
+    CustomListAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        adapter = new CustomListAdapter();
+        ListView lstView = findViewById(R.id.lst_view);
+        lstView.setAdapter(adapter);
+
         KaKaoSearch kaKaoSearch = new KaKaoSearch();
         kaKaoSearch.execute();
     }
@@ -32,6 +42,19 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+
+            try {
+                JSONObject json = new JSONObject(s);
+                JSONArray array = json.getJSONArray("documents");
+                for(int i=0;i<array.length();i++){
+                    JSONObject j = array.getJSONObject(i);
+                    adapter.addItem(j.getString("thumbnail_url"),
+                            j.getString("display_sitename"),j.getString("doc_url"));
+                }
+                adapter.notifyDataSetChanged();
+            } catch (JSONException e) {
+                throw new RuntimeException(e);
+            }
         }
 
         @Override
