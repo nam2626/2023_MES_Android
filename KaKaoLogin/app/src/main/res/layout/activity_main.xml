@@ -14,6 +14,24 @@
         android:layout_height="wrap_content"
         android:text="카카오톡 로그인" />
 
+    <Button
+        android:id="@+id/btn_profile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="사용자 정보 읽기" />
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="로그아웃" />
+
+    <Button
+        android:id="@+id/btn_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="연결 끊기" />
+
     <TextView
         android:id="@+id/txt_result"
         android:layout_width="match_parent"
